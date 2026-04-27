@@ -1,6 +1,6 @@
 # creative-performance-task-
 
-# Brandon’s Pro Football Position Finder (final version)
+# Brandon’s Pro Football Position Finder
 
 # this function safely gets a number so the program doesn't crash if the user types something wrong
 def get_int_input(prompt):
