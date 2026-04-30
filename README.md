@@ -1,6 +1,4 @@
-# creative-performance-task-
-
-# Brandon’s Pro Football Position Finder
+# Brandon's Pro Football Position Finder
 
 # this function safely gets a number so the program doesn't crash if the user types something wrong
 def get_int_input(prompt):
@@ -21,69 +19,80 @@ def get_height_in_inches():
 
 def main():
 
-    # ask user for offense or defense and clean up input
-    side = input("Would you like offense or defense? ").strip().lower()
+    # loop so the program can run again
+    while True:
 
-    # get weight safely
-    weight = get_int_input("Enter your weight in pounds: ")
+        # ask user for offense or defense and clean up input
+        side = input("Would you like offense or defense? ").strip().lower()
 
-    # get height safely
-    height = get_height_in_inches()
+        # get weight safely
+        weight = get_int_input("Enter your weight in pounds: ")
 
-    # realistic size limits for this model
-    MIN_WEIGHT = 191
-    MAX_WEIGHT = 278
-    MIN_HEIGHT = 67   # 5'7
-    MAX_HEIGHT = 77   # 6'5
+        # get height safely
+        height = get_height_in_inches()
 
-    # check weight range
-    if weight < MIN_WEIGHT or weight > MAX_WEIGHT:
-        print("Weight is outside the allowed range (191–278).")
-        return
+        # realistic size limits for this model
+        MIN_WEIGHT = 191
+        MAX_WEIGHT = 239   # UPDATED MAX
+        MIN_HEIGHT = 67   # 5'7
+        MAX_HEIGHT = 77   # 6'5
 
-    # check height range
-    if height < MIN_HEIGHT or height > MAX_HEIGHT:
-        print("Height is outside the allowed range (5'7–6'5).")
-        return
+        # check weight range
+        if weight < MIN_WEIGHT or weight > MAX_WEIGHT:
+            print("Weight is outside the allowed range (191–239).")
+            continue  # restart program
 
-    # OFFENSE LOGIC
-    if side == "offense":
+        # check height range
+        if height < MIN_HEIGHT or height > MAX_HEIGHT:
+            print("Height is outside the allowed range (5'7–6'5).")
+            continue  # restart program
 
-        if 190 <= weight <= 206 and 70 <= height <= 77:
-            print("You would likely be a Wide Receiver or Quarterback.")
+        # OFFENSE LOGIC
+        if side == "offense":
 
-        else:
-            if 206 < weight <= 239 and 69 <= height <= 77:
-                print("You would likely be a Tight End.")
-
-            else:
-                if 239 < weight <= 278 and 70 <= height <= 77:
-                    print("You would likely be an Offensive Lineman.")
-
-                else:
-                    print("No offensive position matched your size.")
-
-    else:
-
-        # DEFENSE LOGIC
-        if side == "defense":
-
-            if 190 <= weight <= 206 and 70 <= height <= 75:
-                print("You would likely be a Cornerback or Safety.")
+            if 190 <= weight <= 206 and 70 <= height <= 77:
+                print("You would likely be a Wide Receiver or Quarterback.")
 
             else:
-                if 206 < weight <= 239 and 67 <= height <= 72:
-                    print("You would likely be a Linebacker or Defensive End.")
+                if 206 < weight <= 239 and 69 <= height <= 77:
+                    print("You would likely be a Tight End.")
 
                 else:
                     if 239 < weight <= 278 and 70 <= height <= 77:
-                        print("You would likely be a Defensive Lineman.")
+                        print("You would likely be an Offensive Lineman.")
 
                     else:
-                        print("No defensive position matched your size.")
+                        print("No offensive position matched your size.")
 
         else:
-            print("Please choose either offense or defense.")
+
+            # DEFENSE LOGIC
+            if side == "defense":
+
+                if 190 <= weight <= 206 and 70 <= height <= 75:
+                    print("You would likely be a Cornerback or Safety.")
+
+                else:
+                    if 206 < weight <= 239 and 67 <= height <= 72:
+                        print("You would likely be a Linebacker or Defensive End.")
+
+                    else:
+                        if 239 < weight <= 278 and 70 <= height <= 77:
+                            print("You would likely be a Defensive Lineman.")
+
+                        else:
+                            print("No defensive position matched your size.")
+
+            else:
+                print("Please choose either offense or defense.")
+                continue
+
+        # ask if user wants to run again
+        again = input("Would you like to try again? (yes/no): ").strip().lower()
+
+        if again != "yes":
+            print("Program ended.")
+            break
 
 
 # start the program
