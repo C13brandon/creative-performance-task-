@@ -1,4 +1,4 @@
-# Brandon's Pro Football Position Finder
+# Brandon's Pro Football Position Finder 
 
 # this function safely gets a number so the program doesn't crash if the user types something wrong
 def get_int_input(prompt):
@@ -33,28 +33,29 @@ def main():
 
         # realistic size limits for this model
         MIN_WEIGHT = 191
-        MAX_WEIGHT = 239   # UPDATED MAX
+        MAX_WEIGHT = 278   # back to original max
         MIN_HEIGHT = 67   # 5'7
         MAX_HEIGHT = 77   # 6'5
 
         # check weight range
         if weight < MIN_WEIGHT or weight > MAX_WEIGHT:
-            print("Weight is outside the allowed range (191–239).")
-            continue  # restart program
+            print("Weight is outside the allowed range (191–278).")
+            continue
 
         # check height range
         if height < MIN_HEIGHT or height > MAX_HEIGHT:
             print("Height is outside the allowed range (5'7–6'5).")
-            continue  # restart program
+            continue
 
         # OFFENSE LOGIC
         if side == "offense":
 
-            if 190 <= weight <= 206 and 70 <= height <= 77:
+            # max weight to 226
+            if 190 <= weight <= 226 and 70 <= height <= 77:
                 print("You would likely be a Wide Receiver or Quarterback.")
 
             else:
-                if 206 < weight <= 239 and 69 <= height <= 77:
+                if 226 < weight <= 239 and 69 <= height <= 77:
                     print("You would likely be a Tight End.")
 
                 else:
@@ -69,11 +70,12 @@ def main():
             # DEFENSE LOGIC
             if side == "defense":
 
-                if 190 <= weight <= 206 and 70 <= height <= 75:
+                # max weight to 226
+                if 190 <= weight <= 226 and 70 <= height <= 75:
                     print("You would likely be a Cornerback or Safety.")
 
                 else:
-                    if 206 < weight <= 239 and 67 <= height <= 72:
+                    if 226 < weight <= 239 and 67 <= height <= 72:
                         print("You would likely be a Linebacker or Defensive End.")
 
                     else:
